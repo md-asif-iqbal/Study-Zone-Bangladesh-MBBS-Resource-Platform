@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f7f6f2;
+  --foreground: #22272b;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Use dynamic viewport height for mobile correctness */
+.min-h-dvh {
+  min-height: 100vh; /* fallback */
+  min-height: 100dvh;
+}
+
+.h-dvh {
+  height: 100vh; /* fallback */
+  height: 100dvh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Ensure interactive elements meet 44x44 touch target on coarse pointers */
+@media (pointer: coarse) {
+  button,
+  a[role="button"],
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Thin, calm scrollbar consistent with the clinical aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #dfddd4;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c9c6ba;
+}
+
+@layer components {
+  .sz-card {
+    @apply rounded-card border border-line bg-white shadow-card;
+  }
+
+  .sz-input {
+    @apply w-full rounded-md border border-line bg-white px-3 py-2 text-charcoal
+      outline-none transition-colors placeholder:text-charcoal-muted/60
+      focus:border-teal focus:ring-2 focus:ring-teal/20;
+  }
+
+  .sz-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2.5
+      text-sm font-medium transition-colors disabled:cursor-not-allowed
+      disabled:opacity-60;
+  }
+
+  .sz-btn-primary {
+    @apply sz-btn bg-teal text-white hover:bg-teal-dark;
+  }
+
+  .sz-btn-secondary {
+    @apply sz-btn border border-line bg-white text-charcoal hover:bg-bone-dark;
+  }
+
+  .sz-btn-amber {
+    @apply sz-btn bg-amber text-white hover:opacity-90;
+  }
+
+  .sz-badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium;
+  }
+}
