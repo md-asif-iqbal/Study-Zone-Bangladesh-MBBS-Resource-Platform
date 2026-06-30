@@ -75,6 +75,7 @@ export const COLLEGES: College[] = [
   { id: "jhenaidah-mc", name: "Jhenaidah Medical College", type: "government", location: "Jhenaidah", affiliatedUniversity: "Rajshahi Medical University" },
 
   // =====================================================================
+  // =====================================================================
   // ARMED FORCES MEDICAL COLLEGES
   // =====================================================================
   { id: "afmc", name: "Armed Forces Medical College", type: "armed_forces", location: "Dhaka", affiliatedUniversity: "Bangladesh University of Professionals" },

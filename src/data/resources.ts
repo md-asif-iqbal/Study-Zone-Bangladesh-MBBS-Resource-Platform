@@ -1,4 +1,5 @@
 import type { ExamRoutine, MCQ, Resource } from "@/lib/types";
+import { EXTRA_MCQS } from "@/data/mcqBank";
 
 // Mixed resources. collegeId === null means shared nationally.
 // previous_question entries are scoped to a specific college.
@@ -469,7 +470,7 @@ export const RESOURCES: Resource[] = [
   },
 ];
 
-export const MCQS: MCQ[] = [
+const BASE_MCQS: MCQ[] = [
   {
     id: "m-1",
     topicId: "ana-upper-limb",
@@ -669,6 +670,8 @@ export const MCQS: MCQ[] = [
       "Incidence measures new cases arising in a population over a defined time period, whereas prevalence measures existing cases.",
   },
 ];
+
+export const MCQS: MCQ[] = [...BASE_MCQS, ...EXTRA_MCQS];
 
 export const EXAM_ROUTINES: ExamRoutine[] = [
   { id: "e-1", collegeId: "dmc", year: "1st", examName: "Anatomy 1st Card Exam", date: futureDate(10) },
